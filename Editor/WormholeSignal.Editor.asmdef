@@ -1,0 +1,18 @@
+{
+    "name": "WormholeSignal.Editor",
+    "rootNamespace": "WormholeSignal.Editor",
+    "references": [
+        "GUID:f96de478edbc281438199f6b69a6cec5"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
