@@ -29,7 +29,7 @@ namespace WormholeSignal.Editor
 
             EditorGUILayout.Space(2);
 
-            SignalListEditor.DoSignalList("Global Signal List", SignalList.Obj.SerializedObject);
+            SignalListEditor.DoSignalList("Global Signal List", SignalList.SerializedObject);
 
             EditorGUILayout.Space();
 

@@ -102,14 +102,14 @@ namespace WormholeSignal
 
 #if UNITY_EDITOR
         #region Serialized Object
-        private SerializedObject _cachedSerializedObject;
-        public SerializedObject SerializedObject
+        private static SerializedObject _cachedSerializedObject;
+        public static SerializedObject SerializedObject
         {
             get
             {
                 if (_cachedSerializedObject == null)
                 {
-                    _cachedSerializedObject = new SerializedObject(this);
+                    _cachedSerializedObject = new SerializedObject(Obj);
                 }
 
                 return _cachedSerializedObject;
@@ -118,7 +118,7 @@ namespace WormholeSignal
         #endregion
 #endif
 
-        [SerializeField] private List<Signal> signals = new List<Signal>();
+        [SerializeField] [HideInInspector] private List<Signal> signals = new List<Signal>();
 
         /// <summary>
         /// A list of all <see cref="Signal"/> in the entire project.
@@ -226,6 +226,12 @@ namespace WormholeSignal
             // In this loop we are just going to check if we have this Signal added and remove it from that spot
             int count = prop.arraySize;
 
+            // No entries in list so return
+            if (count <= 0)
+            {
+                return;
+            }
+
             for (int i = 0; i < count; i++)
             {
                 // Get array element at the index
@@ -258,6 +264,12 @@ namespace WormholeSignal
             // Loop through all array elements in the property
             // In this loop we are just going to remove all null entries
             int count = prop.arraySize;
+
+            // No entries in list so return
+            if (count <= 0)
+            {
+                return;
+            }
 
             for (int i = 0; i < count; i++)
             {

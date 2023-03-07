@@ -15,14 +15,14 @@ namespace WormholeSignal.Editor
 
             EditorGUILayout.Space();
 
-            DoSignalList("Signals", serializedObject);
+            DoSignalList("Signals", SignalList.SerializedObject);
 
             EditorGUILayout.Space();
 
             // Clean the List if this button is pressed
             if (GUILayout.Button("Clean List"))
             {
-                SignalList.CleanList(serializedObject);
+                SignalList.CleanList(SignalList.SerializedObject);
             }
         }
 
