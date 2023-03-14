@@ -287,7 +287,8 @@ namespace WormholeSignal
             // Apply changes
             obj.ApplyModifiedPropertiesWithoutUndo();
         }
-
+#endif
+    
         /// <summary>
         /// Returns a <see cref="Signal"/> by GUID using the <see cref="SignalGuidDictionary"/>.
         /// </summary>
@@ -296,6 +297,5 @@ namespace WormholeSignal
         /// Returns a <see cref="Signal"/> by Name using the <see cref="SignalNameDictionary"/>.
         /// </summary>
         public static Signal GetByName(string name) => SignalNameDictionary[name];
-#endif
     }
 }
