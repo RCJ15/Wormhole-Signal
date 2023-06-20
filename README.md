@@ -1,7 +1,7 @@
 # Thinking With Wormholes And Signals
 Wormhole Signal is a tool for Unity which creates events that are tied to scriptable objects.
 
-This means that you no longer have to create dependancies on scripts when wanting to receive certain events, which often leads to tighly a phenomenon known as "Spaghetti Code". Using Wormhole Signal you can instead reference scriptable objects instead of any script you wrote, removing that unnecessary entanglement you would otherwise face.
+This means that you no longer have to create dependancies on scripts when wanting to receive certain events, which often leads to a phenomenon known as "Spaghetti Code". Using Wormhole Signal you can instead reference scriptable objects instead of any script you wrote, removing that unnecessary entanglement you would otherwise face.
 
 # How To Install
 1. Download the repository.
@@ -21,10 +21,10 @@ If you take a peek at the inspector of any Wormhole Signal that you've created, 
 
 ![Wormhole Signal Asset Inspector](https://user-images.githubusercontent.com/73841786/223552918-3d27a94f-17ff-4775-974d-9ed12e07905f.png)
 
-The **GUID** is the Signals Globally Unique IDentifier and will be unique for every single signal that is created. This value is actually assigned by Unity but each Signal saves it in their own variable so that they can utilize this value during builds.
+The **GUID** is the Globally Unique IDentifier for that Signal. This ID will be unique for every single signal that is created. This value is actually assigned by Unity but each Signal saves it in their own variable so that they can utilize this value during builds.
 
 
-The **Global Signal List** is a list of every single Signal in the entire project. This list is a direct view of the Signal List inspector and is used to get a Signal during runtime without needing to set a reference in the inspector.
+The **Global Signal List** is a list of every single Signal in the entire project. This list is a direct view of the Signal List inspector and is used to get a Signal during runtime without needing to set a reference in the inspector. It's super important to note that this is not unique for each Signal and looks the same for every single Signal, hence why it's called the **Global Signal List** (emphasis on Global).
 
 
 Lastly, the **"Find Global Signal List Object"** button will simply ping and automatically select the Signal List Asset in your project, which should be included when you download this package. This asset contains the Global Signal List as mentioned above.
