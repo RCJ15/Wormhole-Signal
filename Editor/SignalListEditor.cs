@@ -11,7 +11,7 @@ namespace WormholeSignal.Editor
     {
         public override void OnInspectorGUI()
         {
-            EditorGUILayout.HelpBox("The Signal List is a scriptable object which hold a list of every single Signal in the entire project and is what allows you to get Signals via GUID or Name in code.\n\nPress the \"Clean List\" button to remove any null entries in the Signal list.", MessageType.Info);
+            EditorGUILayout.HelpBox("The Signal List is a scriptable object which holds a list of every single Signal in the entire project and is what allows you to get Signals via GUID or Name in code.\n\nPress the \"Clean List\" button to remove any null entries in the Signal list.", MessageType.Info);
 
             EditorGUILayout.Space();
 
