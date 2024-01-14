@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityObject = UnityEngine.Object;
 
 namespace WormholeSignal
 {
@@ -10,11 +11,11 @@ namespace WormholeSignal
     [CreateAssetMenu(menuName = "Wormhole Signal", fileName = "New Wormhole Signal", order = 150)]
     public class Signal : ScriptableObject
     {
-        [SerializeField] private string _guid = null;
         /// <summary>
         /// The Globally Unique IDentifier (GUID) for this <see cref="Signal"/>.
         /// </summary>
         public string GUID => _guid;
+        [SerializeField] private string _guid = null;
 
         #region Delegates & Dictionaries
         /// <summary>
@@ -134,6 +135,14 @@ namespace WormholeSignal
         /// </summary>
         public void Subscribe(Action<string> callback) => Subscribe<string>(callback);
         /// <summary>
+        /// Subscribes the given <paramref name="callback"/> to the event in the <see cref="ValueCallbackDictionary"/> with the type of <see cref="UnityObject"/>. <para/> The ValueCallbackDictionary has a collection of all callbacks that receive specific data types on this <see cref="Signal"/>.
+        /// </summary>
+        public void Subscribe(Action<UnityObject> callback) => Subscribe<UnityObject>(callback);
+        /// <summary>
+        /// Subscribes the given <paramref name="callback"/> to the event in the <see cref="ValueCallbackDictionary"/> with the type of <see cref="GameObject"/>. <para/> The ValueCallbackDictionary has a collection of all callbacks that receive specific data types on this <see cref="Signal"/>.
+        /// </summary>
+        public void Subscribe(Action<GameObject> callback) => Subscribe<GameObject>(callback);
+        /// <summary>
         /// Subscribes the given <paramref name="callback"/> to the event in the <see cref="ValueCallbackDictionary"/> with the type of <see cref="object"/>. <para/> The ValueCallbackDictionary has a collection of all callbacks that receive specific data types on this <see cref="Signal"/>.
         /// </summary>
         public void Subscribe(Action<object> callback) => Subscribe<object>(callback);
@@ -202,6 +211,14 @@ namespace WormholeSignal
         /// </summary>
         public void Unsubscribe(Action<string> callback) => Unsubscribe<string>(callback);
         /// <summary>
+        /// Unsubscribes the given <paramref name="callback"/> from the event in the <see cref="ValueCallbackDictionary"/> with the type of <see cref="UnityObject"/>. <para/> The ValueCallbackDictionary has a collection of all callbacks that receive specific data types on this <see cref="Signal"/>.
+        /// </summary>
+        public void Unsubscribe(Action<UnityObject> callback) => Unsubscribe<UnityObject>(callback);
+        /// <summary>
+        /// Unsubscribes the given <paramref name="callback"/> from the event in the <see cref="ValueCallbackDictionary"/> with the type of <see cref="GameObject"/>. <para/> The ValueCallbackDictionary has a collection of all callbacks that receive specific data types on this <see cref="Signal"/>.
+        /// </summary>
+        public void Unsubscribe(Action<GameObject> callback) => Unsubscribe<GameObject>(callback);
+        /// <summary>
         /// Unsubscribes the given <paramref name="callback"/> from the event in the <see cref="ValueCallbackDictionary"/> with the type of <see cref="object"/>. <para/> The ValueCallbackDictionary has a collection of all callbacks that receive specific data types on this <see cref="Signal"/>.
         /// </summary>
         public void Unsubscribe(Action<object> callback) => Unsubscribe<object>(callback);
@@ -221,6 +238,36 @@ namespace WormholeSignal
 
             OnReceiveAnyCall?.Invoke(null);
         }
+
+        /// <summary>
+        /// Calls the specific event that receives a value of type <see cref="int"/>.
+        /// </summary>
+        public void Call(int value) => Call<int>(value);
+
+        /// <summary>
+        /// Calls the specific event that receives a value of type <see cref="float"/>.
+        /// </summary>
+        public void Call(float value) => Call<float>(value);
+
+        /// <summary>
+        /// Calls the specific event that receives a value of type <see cref="bool"/>.
+        /// </summary>
+        public void Call(bool value) => Call<bool>(value);
+
+        /// <summary>
+        /// Calls the specific event that receives a value of type <see cref="string"/>.
+        /// </summary>
+        public void Call(string value) => Call<string>(value);
+
+        /// <summary>
+        /// Calls the specific event that receives a value of type <see cref="UnityObject"/>.
+        /// </summary>
+        public void Call(UnityObject value) => Call<UnityObject>(value);
+
+        /// <summary>
+        /// Calls the specific event that receives a value of type <see cref="GameObject"/>.
+        /// </summary>
+        public void Call(GameObject value) => Call<GameObject>(value);
 
         /// <summary>
         /// Calls the specific event that receives a value of type <see cref="object"/>.
